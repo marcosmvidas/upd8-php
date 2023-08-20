@@ -4,15 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>:upd8</title>
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     </head>
-<body>
-    <!-- Adicione um cabeçalho comum aqui, se necessário -->
 
-    <!-- Conteúdo dinâmico será incluído aqui -->
-    @yield('content')
+    <body>
 
-    <!-- Adicione um rodapé comum aqui, se necessário -->
-</body>
+        @yield('content')
+    </body>
 </html>

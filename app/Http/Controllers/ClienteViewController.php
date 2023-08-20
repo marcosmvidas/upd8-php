@@ -19,5 +19,9 @@ class ClienteViewController extends Controller
         return view('clientes.show', compact('cliente'));
     }
 
-    // Adicione métodos para exibir formulários de criação e edição, e para processar os dados do formulário
+    public function create()
+    {
+        return view('clientes.create');
+    }
+
 }
