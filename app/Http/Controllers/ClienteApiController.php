@@ -1,11 +1,12 @@
 <?php
 
+// namespace App\Http\Controllers\Api;
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 
-class ClienteController extends Controller
+class ClienteApiController extends Controller
 {
     public function index()
     {
