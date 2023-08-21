@@ -18,10 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/clientes', [ClienteViewController::class, 'index']);
-Route::get('/clientes/create', [ClienteViewController::class, 'create'])->name('clientes.create');
-Route::post('/clientes', [ClienteViewController::class, 'store'])->name('clientes.store');
-Route::post('/clientes/{cliente}', [ClienteViewController::class, 'show'])->name('clientes.show');
-Route::get('/clientes/{cliente}/edit', [ClienteViewController::class, 'edit'])->name('clientes.edit');
-Route::put('/clientes/{cliente}', [ClienteViewController::class, 'update'])->name('clientes.update');
-Route::delete('/clientes/{cliente', [ClienteViewController::class, 'update'])->name('clientes.update');
+// Route::get('/clientes', [ClienteViewController::class, 'index']);
+// Route::get('/clientes/create', [ClienteViewController::class, 'create'])->name('clientes.create');
+// Route::post('/clientes', [ClienteViewController::class, 'store'])->name('clientes.store');
+// Route::get('/clientes/{cliente}', [ClienteViewController::class, 'show'])->name('clientes.show');
+// Route::get('/clientes/{cliente}/edit', [ClienteViewController::class, 'edit'])->name('clientes.edit');
+// Route::put('/clientes/{cliente}', [ClienteViewController::class, 'update'])->name('clientes.update');
+// Route::delete('/clientes/{cliente}', [ClienteViewController::class, 'destroy'])->name('clientes.destroy');
+
+Route::resource('clientes', ClienteViewController::class);
