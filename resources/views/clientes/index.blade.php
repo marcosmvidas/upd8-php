@@ -20,7 +20,7 @@
                     </div>
                     <div class="flex-1">
                         <label for="data_nascimento">Data Nascimento</label>
-                        <input type="text" id="data_nascimento" name="data_nascimento" class="form-control">
+                        <input type="date" id="data_nascimento" name="data_nascimento" class="form-control datepicker">
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Sexo:</label>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="flex-1">
                         <label for="Cidade">Cidade</label>
-                        <select id="cidade" name="cidade" class="form-select"></select>
+                        <input type="text" id="cidade" name="cidade" class="form-control">
                     </div>
                     <div class="flex-1 text-end">
                         <button class="btn btn-primary">Pesquisar</button>
@@ -74,7 +74,7 @@
                     <td class="text-center"><button class="btn btn-danger">Excluir</button></td>
                     <td>{{ $cliente->nome }}</td>
                     <td>{{ $cliente->cpf }}</td>
-                    <td>{{ $cliente->data_nascimento }}</td>
+                    <td>{{ date('d/m/Y', strtotime($cliente->data_nascimento)) }}</td>
                     <td>{{ $cliente->estado }}</td>
                     <td>{{ $cliente->cidade }}</td>
                     <td>{{ $cliente->sexo }}</td>
@@ -85,4 +85,12 @@
     </div>
 </div>
 </div>
+<!-- No final da sua view, antes da tag </body> -->
+<script>
+    flatpickr(".datepicker", {
+        dateFormat: "d/m/Y", // Formato de data desejado (dd/mm/yyyy)
+        locale: "pt" // Localização para usar as configurações do idioma português
+    });
+</script>
+
 @endsection
