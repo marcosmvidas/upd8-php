@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="data_nascimento" class="form-label">Data Nascimento</label>
-                        <input type="text" id="data_nascimento" name="data_nascimento" class="form-control">
+                        <input type="date" id="data_nascimento" name="data_nascimento" class="form-control">
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Sexo</label>
@@ -45,11 +45,11 @@
                     </div>
                     <div class="col-md-4">
                         <label for="estado" class="form-label">Estado</label>
-                        <select id="estado" name="estado" class="form-select"></select>
+                        <input type="text" id="estado" name="estado" class="form-control">
                     </div>
                     <div class="col-md-4">
                         <label for="cidade" class="form-label">Cidade</label>
-                        <select id="cidade" name="cidade" class="form-select"></select>
+                        <input type="text" id="cidade" name="cidade" class="form-control">
                     </div>
                 </div>
                 <div class="row">
