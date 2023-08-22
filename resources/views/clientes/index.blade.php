@@ -7,7 +7,7 @@
             <a href="{{ route('clientes.create') }}" class="btn btn-success">Cadastrar</a>
         </div>
         <div class="p-3 rounded shadow-sm">
-            <h2 class="mb-4">Consulta de Cliente</h2>
+            <h2 class="mb-4">Consulta Cliente</h2>
             <form>
                 <div class="d-flex gap-3">
                     <div class="flex-1">
@@ -71,7 +71,13 @@
                     <td class="text-center">
                         <a href="{{ route('clientes.edit', ['cliente' => $cliente]) }}" class="btn btn-primary">Editar</a>
                     </td>
-                    <td class="text-center"><button class="btn btn-danger">Excluir</button></td>
+                    <td class="text-center">
+                        <form action="{{ route('clientes.destroy', ['cliente' => $cliente]) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir o cliente?');">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
                     <td>{{ $cliente->nome }}</td>
                     <td>{{ $cliente->cpf }}</td>
                     <td>{{ date('d/m/Y', strtotime($cliente->data_nascimento)) }}</td>
@@ -83,9 +89,11 @@
             </tbody>
         </table>
     </div>
+    <div class="mt-4 d-flex justify-content-center">
+        {{ $clientes->links('pagination::bootstrap-4') }}
+    </div>
 </div>
 </div>
-<!-- No final da sua view, antes da tag </body> -->
 <script>
     flatpickr(".datepicker", {
         dateFormat: "d/m/Y", // Formato de data desejado (dd/mm/yyyy)

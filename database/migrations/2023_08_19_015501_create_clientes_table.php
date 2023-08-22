@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('endereco')->nullable();
             $table->string('estado')->nullable();
             $table->string('cidade')->nullable();
+            // $table->enum('status', ['Ativo', 'Inativo'])->nullable();
             $table->timestamps();
         });
     }

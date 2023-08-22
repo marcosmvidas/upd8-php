@@ -18,7 +18,7 @@ class ClienteViewController extends Controller
         ->when($request->input('cidade'), fn ($query, $cidade) => $query->where('cidade', 'LIKE', "%$cidade%"))
         ->when($request->input('sexo'), fn ($query, $sexo) => $query->where('sexo', $sexo));
 
-        $clientes = $query->get();
+        $clientes = $query->paginate(3);
 
         return view('clientes.index', compact('clientes'));
     }
@@ -53,5 +53,15 @@ class ClienteViewController extends Controller
         return view('clientes.edit', ['cliente' => $cliente]);
     }
 
+    public function destroy(Cliente $cliente)
+    {
+        $cliente->delete();
+        return redirect()->route('clientes.index')->with('success', 'Cliente excluído com sucesso.');
+    }
 
+    // public function destroy(Cliente $cliente)
+    // {
+    //     $cliente->update(['status' => 'Inativo']);
+    //     return redirect()->route('clientes.index')->with('success', 'Cliente inativado com sucesso.');
+    // }
 }
