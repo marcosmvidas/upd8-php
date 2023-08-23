@@ -2,8 +2,12 @@
 
 @section('content')
     <div class="container">
+        <div>
+            @if (session()->has('message'))
+            @endif
+        </div>
         <h1 class="mt-4">Cadastro Cliente - Alteração</h1>
-        <form action="{{ route('clientes.update', ['cliente' => $cliente-> id]) }}" method="post">
+        <form action="{{ route('clientes.update', ['cliente' => $cliente->id]) }}" method="post">
             @csrf
             <input type="hidden" name="_method" value="PUT" >
             <div class="mb-3">

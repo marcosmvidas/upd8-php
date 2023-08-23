@@ -53,6 +53,19 @@ class ClienteViewController extends Controller
         return view('clientes.edit', ['cliente' => $cliente]);
     }
 
+    // public function update(Request $request, string $id)
+    public function update(Request $request, Cliente $cliente)
+    {
+        $updated = $cliente->update($request->except(['_token', '_method']));
+
+        if ($updated) {
+            return redirect()->action([ClienteViewController::class, 'index'])->with('message', 'Alteração feita com sucesso!');
+        }
+
+        return redirect()->action([ClienteViewController::class, 'index'])->with('message', 'Erro ao reslizar alteração.');
+
+    }
+
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
