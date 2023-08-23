@@ -69,7 +69,7 @@ class ClienteViewController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-        return redirect()->route('clientes.index')->with('success', 'Cliente excluído com sucesso.');
+        return redirect()->action([ClienteViewController::class, 'index'])->with('message', 'Cliente excluído com sucesso.');
     }
 
     // public function destroy(Cliente $cliente)
