@@ -31,9 +31,13 @@
                                 <input type="radio" id="masculino" name="sexo" value="Masculino" class="form-check-input">
                                 <label for="masculino" class="form-check-label">Masculino</label>
                             </div>
-                            <div class="form-check">
+                            <div class="form-check me-3">
                                 <input type="radio" id="feminino" name="sexo" value="Feminino" class="form-check-input">
                                 <label for="feminino" class="form-check-label">Feminino</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="outros" name="sexo" value="Outros" class="form-check-input">
+                                <label for="outros" class="form-check-label">Outros</label>
                             </div>
                         </div>
                     </div>

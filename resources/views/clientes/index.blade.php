@@ -23,15 +23,19 @@
                         <input type="date" id="data_nascimento" name="data_nascimento" class="form-control datepicker">
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label">Sexo:</label>
+                        <label class="form-label">Sexo</label>
                         <div class="d-flex">
                             <div class="form-check me-3">
                                 <input type="radio" id="masculino" name="sexo" value="M" class="form-check-input">
                                 <label for="masculino" class="form-check-label">Masculino</label>
                             </div>
-                            <div class="form-check">
+                            <div class="form-check me-3">
                                 <input type="radio" id="feminino" name="sexo" value="F" class="form-check-input">
                                 <label for="feminino" class="form-check-label">Feminino</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="outros" name="sexo" value="O" class="form-check-input">
+                                <label for="outros" class="form-check-label">Outros</label>
                             </div>
                         </div>
                     </div>
@@ -59,8 +63,8 @@
                     <th class="text-center" colspan="2">Ações</th>
                     <th>Cliente</th>
                     <th>CPF</th>
-                    <th>Data Nasc</th>
-                    <th>Estado</th>
+                    <th class="text-center">Data Nascimento</th>
+                    <th class="text-center">Estado</th>
                     <th>Cidade</th>
                     <th>Sexo</th>
                 </tr>
@@ -79,9 +83,10 @@
                         </form>
                     </td>
                     <td>{{ $cliente->nome }}</td>
+                    <td>{{ substr_replace($cliente->cpf, '.', 3, 0) }}</td>
                     <td>{{ $cliente->cpf }}</td>
-                    <td>{{ date('d/m/Y', strtotime($cliente->data_nascimento)) }}</td>
-                    <td>{{ $cliente->estado }}</td>
+                    <td class="text-center">{{ date('d/m/Y', strtotime($cliente->data_nascimento)) }}</td>
+                    <td class="text-center text-uppercase">{{ $cliente->estado }}</td>
                     <td>{{ $cliente->cidade }}</td>
                     <td>{{ $cliente->sexo }}</td>
                 </tr>
@@ -93,12 +98,5 @@
         {{ $clientes->links('pagination::bootstrap-4') }}
     </div>
 </div>
-</div>
-<script>
-    flatpickr(".datepicker", {
-        dateFormat: "d/m/Y", // Formato de data desejado (dd/mm/yyyy)
-        locale: "pt" // Localização para usar as configurações do idioma português
-    });
-</script>
 
 @endsection

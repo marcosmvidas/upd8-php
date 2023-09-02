@@ -34,6 +34,7 @@ class ClientesTableSeeder extends Seeder
             'estado' => 'RJ',
             'cidade' => 'Rio de Janeiro',
         ]);
+
         Cliente::create([
             'cpf' => '12345678900',
             'nome' => 'Create Cliente Número 1',
